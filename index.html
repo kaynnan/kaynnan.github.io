@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kaynnan Bardauil</title>
+<meta name="description" content="Kaynnan Bardauil Lemes - Senior Full Stack Developer, Odoo specialist and OCA contributor. Python, React, Node.js, integrations and Brazilian fiscal compliance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column of stacked bands; dark ledger-blue hero, light working sections, mono labels like terminal output */
+:root{
+  --bg:#f5f7fa; --surface:#ffffff; --fg:#0e1726; --muted:#4a5568; --line:#dde3ec;
+  --ink-bg:#0b1424; --ink-bg2:#12233d; --ink-fg:#e6edf6; --ink-muted:#9fb0c6;
+  --accent:#0b7fc1; --accent-soft:#e3f1fa; --accent-ink:#7cc8f2;
+  --f-display:"Manrope","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0a111d; --surface:#111b2b; --fg:#e6edf6; --muted:#9fb0c6; --line:#22324a;
+  --ink-bg:#060c16; --ink-bg2:#0d1a2e; --ink-fg:#e6edf6; --ink-muted:#9fb0c6;
+  --accent:#4fb4ec; --accent-soft:#12324a; --accent-ink:#7cc8f2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0a111d; --surface:#111b2b; --fg:#e6edf6; --muted:#9fb0c6; --line:#22324a;
+  --ink-bg:#060c16; --ink-bg2:#0d1a2e; --ink-fg:#e6edf6; --ink-muted:#9fb0c6;
+  --accent:#4fb4ec; --accent-soft:#12324a; --accent-ink:#7cc8f2; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-0.015em}
+.label{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ink-bg);border-bottom:1px solid rgba(159,176,198,.15)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink-bg)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{font-family:var(--f-mono);font-size:14px;color:var(--ink-fg);text-decoration:none}
+.logo b{color:var(--accent-ink);font-weight:500}
+.nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.nav a{color:var(--ink-muted);text-decoration:none;font-size:14px}
+.nav a:hover{color:var(--ink-fg)}
+.lang{display:flex;border:1px solid rgba(159,176,198,.3);border-radius:6px;overflow:hidden}
+.lang button{background:transparent;border:0;color:var(--ink-muted);font-family:var(--f-mono);font-size:12px;padding:5px 9px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent-ink);color:var(--ink-bg)}
+@media (max-width:640px){.nav a{display:none}}
+
+/* hero */
+.hero{background:linear-gradient(160deg,var(--ink-bg),var(--ink-bg2));color:var(--ink-fg);position:relative;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.hero .wrap{position:relative;padding-block:72px 64px;display:grid;gap:28px}
+.hero .who{font-family:var(--f-mono);font-size:14px;color:var(--ink-muted)}
+.hero .who span{color:var(--accent-ink)}
+.hero h1{font-size:clamp(34px,6vw,60px);line-height:1.05;font-weight:800;max-width:15ch}
+.hero p{color:var(--ink-muted);font-size:18px;max-width:60ch;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--f-mono);font-size:12.5px;padding:4px 10px;border-radius:999px;border:1px solid rgba(124,200,242,.35);color:var(--accent-ink)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:11px 18px;border-radius:8px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-body)}
+.btn.primary{background:var(--accent-ink);color:var(--ink-bg)}
+.btn.ghost{border-color:rgba(159,176,198,.35);color:var(--ink-fg);background:transparent}
+.ledger{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(159,176,198,.2);margin-top:8px}
+.ledger div{padding:16px 12px 0 0}
+.ledger b{display:block;font-family:var(--f-display);font-size:30px;color:#fff;line-height:1}
+:root[data-theme="light"] .ledger b{color:#fff}
+.ledger span{font-size:13px;color:var(--ink-muted)}
+@media (max-width:640px){.ledger{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* sections */
+section.s{padding-block:64px}
+section.s + section.s{border-top:1px solid var(--line)}
+.head{display:grid;gap:8px;margin-bottom:28px}
+.head h2{font-size:clamp(26px,3.6vw,36px);font-weight:800}
+.head p{color:var(--muted);max-width:62ch;margin:0}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.stack div{background:var(--surface);padding:18px 20px;min-width:0}
+.stack h3{font-size:16px;font-weight:700;display:flex;justify-content:space-between;gap:8px}
+.stack h3 small{font-family:var(--f-mono);font-size:12px;font-weight:400;color:var(--muted)}
+.stack p{margin:6px 0 0;color:var(--muted);font-size:14.5px}
+
+/* cases */
+.cases{display:grid;gap:16px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px}
+.case h3{font-size:19px;font-weight:700}
+.case .ctx{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);margin-top:6px}
+.case .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.case .tags span{font-family:var(--f-mono);font-size:12px;background:var(--accent-soft);color:var(--accent);padding:2px 8px;border-radius:4px}
+.case dl{margin:0;display:grid;gap:10px}
+.case dt{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.case dd{margin:2px 0 0;color:var(--muted);font-size:15px}
+@media (max-width:720px){.case{grid-template-columns:1fr}}
+
+/* timeline */
+.tl{display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.job{position:relative;padding:0 0 26px 22px}
+.job::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.job .t{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline}
+.job h3{font-size:17px;font-weight:700}
+.job .when{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.job .co{color:var(--accent);font-weight:600;font-size:14.5px}
+.job p{margin:4px 0 0;color:var(--muted);font-size:15px;max-width:70ch}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px 32px}
+.svc div{border-top:2px solid var(--fg);padding-top:12px}
+.svc h3{font-size:16.5px;font-weight:700}
+.svc p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:36px}
+.process div{font-size:14.5px;color:var(--muted)}
+.process b{display:block;color:var(--fg);font-family:var(--f-display);margin-bottom:4px}
+.process i{font-style:normal;font-family:var(--f-mono);color:var(--accent);font-size:12.5px;display:block}
+@media (max-width:720px){.process{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* contact */
+.contact{background:linear-gradient(160deg,var(--ink-bg),var(--ink-bg2));color:var(--ink-fg)}
+.contact .wrap{padding-block:64px;display:grid;gap:28px}
+.contact h2{font-size:clamp(28px,4vw,40px);font-weight:800}
+.contact p{color:var(--ink-muted);margin:0;max-width:58ch}
+.rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:rgba(159,176,198,.2);border-radius:10px;overflow:hidden}
+.row{background:var(--ink-bg);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;min-width:0}
+.row div{min-width:0}
+.row small{display:block;font-family:var(--f-mono);font-size:11.5px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.06em}
+.row a,.row span.v{color:var(--ink-fg);text-decoration:none;font-size:15px;overflow-wrap:anywhere}
+.copy{flex:none;background:transparent;border:1px solid rgba(159,176,198,.35);color:var(--ink-muted);font-family:var(--f-mono);font-size:11.5px;border-radius:6px;padding:4px 8px;cursor:pointer}
+footer{background:var(--ink-bg);color:var(--ink-muted);font-size:13px}
+footer .wrap{padding-block:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid rgba(159,176,198,.15)}
+
+[data-l="pt"]{display:none}
+html[lang="pt-BR"] [data-l="en"]{display:none}
+html[lang="pt-BR"] [data-l="pt"]{display:revert}
+@media (prefers-reduced-motion: reduce){.hero canvas{display:none}}
+</style>
+</head>
+<body>
+
+
+<div class="bar"><div class="wrap">
+  <a class="logo" href="#top">kaynnan<b>.dev</b></a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#stack"><span data-l="en">Stack</span><span data-l="pt">Stack</span></a>
+    <a href="#work"><span data-l="en">Work</span><span data-l="pt">Projetos</span></a>
+    <a href="#experience"><span data-l="en">Experience</span><span data-l="pt">Experiência</span></a>
+    <a href="#contact"><span data-l="en">Contact</span><span data-l="pt">Contato</span></a>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="l-en" type="button" aria-pressed="true">EN</button>
+      <button id="l-pt" type="button" aria-pressed="false">PT</button>
+    </div>
+  </nav>
+</div></div>
+
+<header class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="who">$ whoami <span>kaynnan-bardauil-lemes</span></div>
+    <h1><span data-l="en">Business software that runs in production.</span><span data-l="pt">Software de negócio que roda em produção.</span></h1>
+    <p data-l="en">Senior Full Stack Developer and Odoo specialist. I build ERP platforms, web applications and integrations used every day by companies in Brazil and Angola, from discovery to deployment.</p>
+    <p data-l="pt">Desenvolvedor Full Stack Sênior e especialista em Odoo. Construo ERPs, aplicações web e integrações usadas todos os dias por empresas no Brasil e em Angola, da descoberta ao deploy.</p>
+    <div class="chips"><span class="chip">Python</span><span class="chip">Odoo v14-v18</span><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">PostgreSQL</span><span class="chip">REST / SOAP</span><span class="chip">NF-e / NFS-e</span><span class="chip">C++ / Unreal</span></div>
+    <div class="cta">
+      <a class="btn primary" href="#contact"><span data-l="en">Start a project</span><span data-l="pt">Começar um projeto</span></a>
+      <a class="btn ghost" href="https://github.com/kaynnan" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/kaynnanbardauil" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="ledger">
+      <div><b>8</b><span data-l="en">years building software</span><span data-l="pt">anos desenvolvendo software</span></div>
+      <div><b>5</b><span data-l="en">years in Python and Odoo</span><span data-l="pt">anos com Python e Odoo</span></div>
+      <div><b>OCA</b><span data-l="en">individual contributor</span><span data-l="pt">contribuidor individual</span></div>
+      <div><b>BR / AO</b><span data-l="en">countries in production</span><span data-l="pt">países em produção</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="s" id="stack"><div class="wrap">
+  <div class="head"><span class="label">stack</span>
+    <h2><span data-l="en">What I work with</span><span data-l="pt">Com o que eu trabalho</span></h2></div>
+  <div class="stack">
+    <div><h3>ERP &amp; Odoo <small>5 yrs</small></h3><p>Odoo v14-v18, OCA standards, OWL, accounting, sales, inventory, MRP, migrations, SAP, iPaaS</p></div>
+    <div><h3><span data-l="en">Fiscal &amp; regulatory</span><span data-l="pt">Fiscal e regulatório</span> <small>BR / AO</small></h3><p>NF-e, NFS-e, SPED, CBS/IBS tax reform, AvaTax, l10n-brazil, ARSEG reports, CNAB</p></div>
+    <div><h3>Back-end <small>8 yrs</small></h3><p>Python (Django, FastAPI, Flask, aiohttp), Node.js, NestJS, Java/Spring Boot, Go, .NET, Ruby on Rails</p></div>
+    <div><h3>Front-end <small>React 6 yrs</small></h3><p>React, Next.js, TypeScript, JavaScript, Odoo OWL</p></div>
+    <div><h3><span data-l="en">Data &amp; integrations</span><span data-l="pt">Dados e integrações</span></h3><p>PostgreSQL, SQL Server, MongoDB, Kafka, REST, SOAP, webhooks, payment gateways</p></div>
+    <div><h3>Cloud &amp; DevOps</h3><p>Docker, AWS, Azure, DigitalOcean, Linux, GitLab/GitHub, CI/CD, release bots</p></div>
+    <div><h3>Games &amp; C++ <small>C++ 8+ yrs</small></h3><p>Unreal Engine (Blueprints, GAS), Unity, Godot</p></div>
+    <div><h3><span data-l="en">AI-assisted development</span><span data-l="pt">Desenvolvimento com IA</span></h3><p data-l="en">Claude every day for code, refactoring, tests and review, always backed by tests and CI.</p><p data-l="pt">Claude no dia a dia para código, refatoração, testes e revisão, sempre com testes e CI.</p></div>
+  </div>
+</div></section>
+
+<section class="s" id="work"><div class="wrap">
+  <div class="head"><span class="label">work</span>
+    <h2><span data-l="en">Selected work</span><span data-l="pt">Projetos selecionados</span></h2>
+    <p data-l="en">Client names are omitted where required by confidentiality.</p><p data-l="pt">Nomes de clientes omitidos quando há confidencialidade.</p></div>
+  <div class="cases">
+    <article class="case"><div><h3 data-l="en">Regulatory reporting engine for insurance</h3><h3 data-l="pt">Motor de relatórios regulatórios para seguros</h3><div class="ctx">TIS / Odoo / Angola</div><div class="tags"><span>Python</span><span>Odoo</span><span>PostgreSQL</span><span>Excel</span></div></div>
+      <dl><div><dt data-l="en">Challenge</dt><dt data-l="pt">Desafio</dt><dd data-l="en">Insurers must deliver periodic reports to ARSEG, the Angolan insurance regulator, built from thousands of journal items.</dd><dd data-l="pt">Seguradoras precisam entregar relatórios periódicos à ARSEG, a reguladora angolana, a partir de milhares de lançamentos contábeis.</dd></div>
+      <div><dt data-l="en">Delivered</dt><dt data-l="pt">Entrega</dt><dd data-l="en">IOPS engine that generates the ARSEG workbooks from Odoo accounting, including Solvency Margin and Technical Result by Branch, plus fixed asset sheets. Refactored into a layered architecture.</dd><dd data-l="pt">Motor IOPS que gera as planilhas da ARSEG direto da contabilidade do Odoo, incluindo Margem de Solvência e Resultado Técnico por Ramo, além dos mapas de imobilizado. Refatorado em arquitetura em camadas.</dd></div></dl></article>
+
+    <article class="case"><div><h3 data-l="en">Tax reform readiness for service invoices</h3><h3 data-l="pt">Reforma tributária na NFS-e</h3><div class="ctx">Odoo 18 Enterprise / AvaTax / Brazil</div><div class="tags"><span>l10n_br</span><span>AvaTax</span><span>NFS-e</span><span>XML</span></div></div>
+      <dl><div><dt data-l="en">Challenge</dt><dt data-l="pt">Desafio</dt><dd data-l="en">With a regulatory deadline ahead, service invoices were not calculating the new CBS/IBS taxes.</dd><dd data-l="pt">Com prazo regulatório próximo, as notas de serviço não calculavam os novos tributos CBS/IBS.</dd></div>
+      <div><dt data-l="en">Delivered</dt><dt data-l="pt">Entrega</dt><dd data-l="en">Diagnosed the AvaTax integration, enabled the missing fiscal reform module so the payload carried the new calculation, and mapped the remaining blockers. Also traced an NFS-e rejection to an empty municipal tax field in the XML.</dd><dd data-l="pt">Diagnóstico da integração AvaTax, ativação do módulo da reforma que faltava para o cálculo ir no payload e mapeamento das pendências. Também encontrei a causa de uma rejeição de NFS-e: um campo de tributo municipal vazio no XML.</dd></div></dl></article>
+
+    <article class="case"><div><h3 data-l="en">Insurance web service connector</h3><h3 data-l="pt">Conector de web service de seguradora</h3><div class="ctx">TIS / Odoo / SOAP</div><div class="tags"><span>Python</span><span>SOAP</span><span>OCA</span><span>i18n</span></div></div>
+      <dl><div><dt data-l="en">Challenge</dt><dt data-l="pt">Desafio</dt><dd data-l="en">Policy and warranty data from a travel insurance provider had to flow into Odoo through a legacy SOAP API.</dd><dd data-l="pt">Dados de apólices e garantias de uma assistência de viagem precisavam chegar ao Odoo por uma API SOAP legada.</dd></div>
+      <div><dt data-l="en">Delivered</dt><dt data-l="pt">Entrega</dt><dd data-l="en">Connector module refactored to OCA standards with abstract mixins, a constants module and Angolan Portuguese translations.</dd><dd data-l="pt">Módulo conector refatorado no padrão OCA, com mixins abstratos, módulo de constantes e traduções em português de Angola.</dd></div></dl></article>
+
+    <article class="case"><div><h3 data-l="en">Release automation bot</h3><h3 data-l="pt">Bot de automação de releases</h3><div class="ctx">TIS / GitLab / CI/CD</div><div class="tags"><span>aiohttp</span><span>python-gitlab</span><span>CI/CD</span></div></div>
+      <dl><div><dt data-l="en">Challenge</dt><dt data-l="pt">Desafio</dt><dd data-l="en">The team wanted the OCA merge and version-bump discipline on its own private GitLab.</dd><dd data-l="pt">O time queria o mesmo fluxo de merge e versionamento da OCA no próprio GitLab privado.</dd></div>
+      <div><dt data-l="en">Delivered</dt><dt data-l="pt">Entrega</dt><dd data-l="en">Async Python bot that bumps versions and runs the release flow on merge, with less manual work and more consistent releases.</dd><dd data-l="pt">Bot assíncrono em Python que versiona e executa o fluxo de release no merge, com menos trabalho manual e releases mais consistentes.</dd></div></dl></article>
+
+    <article class="case"><div><h3 data-l="en">Cloud environments dashboard in Odoo</h3><h3 data-l="pt">Painel de ambientes cloud no Odoo</h3><div class="ctx">Internal tooling / DigitalOcean</div><div class="tags"><span>OWL</span><span>REST</span><span>DigitalOcean API</span></div></div>
+      <dl><div><dt data-l="en">Delivered</dt><dt data-l="pt">Entrega</dt><dd data-l="en">Odoo module that manages DigitalOcean Apps and Droplets through the API, with OWL components and REST controllers in one dashboard.</dd><dd data-l="pt">Módulo Odoo que gerencia Apps e Droplets da DigitalOcean via API, com componentes OWL e controllers REST em um só painel.</dd></div></dl></article>
+
+    <article class="case"><div><h3 data-l="en">Open source in the Odoo ecosystem</h3><h3 data-l="pt">Open source no ecossistema Odoo</h3><div class="ctx">OCA / l10n-brazil</div><div class="tags"><span>Open source</span><span>Code review</span></div></div>
+      <dl><div><dt data-l="en">Scope</dt><dt data-l="pt">Escopo</dt><dd data-l="en">Individual contributor with signed CLA and merged work across l10n-brazil, accounting, repair, sales and project repositories.</dd><dd data-l="pt">Contribuidor individual com CLA assinado e código mergeado em l10n-brazil, contabilidade, reparos, vendas e projetos.</dd></div></dl></article>
+  </div>
+</div></section>
+
+<section class="s" id="experience"><div class="wrap">
+  <div class="head"><span class="label">experience</span>
+    <h2><span data-l="en">Experience</span><span data-l="pt">Experiência</span></h2></div>
+  <div class="tl">
+    <div class="job"><div class="t"><h3>Odoo Developer</h3><span class="when">Dec 2025 - <span data-l="en">present</span><span data-l="pt">atual</span></span></div><div class="co">TIS</div><p data-l="en">Odoo for the Angolan market: regulatory reporting, insurance integrations and release automation, with multi-region remote teams.</p><p data-l="pt">Odoo para o mercado angolano: relatórios regulatórios, integrações de seguros e automação de releases, com times remotos em várias regiões.</p></div>
+    <div class="job"><div class="t"><h3 data-l="en">Founder</h3><h3 data-l="pt">Fundador</h3></div><div class="co">Ark Solutions</div><p data-l="en">Discovery, requirements, scoping and solution design for client projects.</p><p data-l="pt">Descoberta, requisitos, escopo e desenho de solução para projetos de clientes.</p></div>
+    <div class="job"><div class="t"><h3>Odoo Developer</h3><span class="when">Mar 2023 - Oct 2026</span></div><div class="co">Escodoo</div><p data-l="en">Custom modules (sales, inventory, accounting, MRP), real-time integrations, version migrations and PostgreSQL tuning.</p><p data-l="pt">Módulos sob medida (vendas, estoque, contabilidade, MRP), integrações em tempo real, migrações de versão e tuning de PostgreSQL.</p></div>
+    <div class="job"><div class="t"><h3 data-l="en">Robotics Teacher</h3><h3 data-l="pt">Professor de Robótica</h3><span class="when">Jan 2022 - Nov 2024</span></div><div class="co">Colégio Objetivo</div></div>
+    <div class="job"><div class="t"><h3 data-l="en">Web Developer (internship)</h3><h3 data-l="pt">Desenvolvedor Web (estágio)</h3><span class="when">Oct 2021 - Dec 2022</span></div><div class="co">Guarda Mirim de Frutal</div></div>
+    <div class="job"><div class="t"><h3 data-l="en">B.Sc. Information Systems</h3><h3 data-l="pt">Bacharelado em Sistemas de Informação</h3></div><div class="co">UEMG</div><p data-l="en">English: advanced (B2). Portuguese: native.</p><p data-l="pt">Inglês avançado (B2). Português nativo.</p></div>
+  </div>
+</div></section>
+
+<section class="s" id="services"><div class="wrap">
+  <div class="head"><span class="label">services</span>
+    <h2><span data-l="en">How I can help</span><span data-l="pt">Como posso ajudar</span></h2></div>
+  <div class="svc">
+    <div><h3 data-l="en">Odoo implementation</h3><h3 data-l="pt">Implantação de Odoo</h3><p data-l="en">Custom modules, version migrations and OCA-standard code others can maintain.</p><p data-l="pt">Módulos sob medida, migrações de versão e código no padrão OCA, fácil de manter.</p></div>
+    <div><h3 data-l="en">Brazilian fiscal compliance</h3><h3 data-l="pt">Fiscal brasileiro</h3><p data-l="en">NF-e, NFS-e, SPED and CBS/IBS tax reform readiness.</p><p data-l="pt">NF-e, NFS-e, SPED e preparação para a reforma tributária (CBS/IBS).</p></div>
+    <div><h3 data-l="en">Integrations that don't break</h3><h3 data-l="pt">Integrações que não quebram</h3><p data-l="en">REST and SOAP APIs, SAP, payment gateways, banking files and webhooks.</p><p data-l="pt">APIs REST e SOAP, SAP, gateways de pagamento, arquivos bancários e webhooks.</p></div>
+    <div><h3 data-l="en">Full stack web apps</h3><h3 data-l="pt">Aplicações web full stack</h3><p data-l="en">Python, Node.js, Java or Go back-ends with React and Next.js front-ends.</p><p data-l="pt">Back-ends em Python, Node.js, Java ou Go com front-end em React e Next.js.</p></div>
+    <div><h3 data-l="en">Performance and DevOps</h3><h3 data-l="pt">Performance e DevOps</h3><p data-l="en">PostgreSQL tuning, Docker, AWS, Azure and CI/CD automation.</p><p data-l="pt">Tuning de PostgreSQL, Docker, AWS, Azure e automação de CI/CD.</p></div>
+    <div><h3 data-l="en">Games and C++</h3><h3 data-l="pt">Games e C++</h3><p data-l="en">Gameplay programming in Unreal Engine, plus Unity and Godot.</p><p data-l="pt">Programação de gameplay em Unreal Engine, além de Unity e Godot.</p></div>
+  </div>
+  <div class="process">
+    <div><i>01</i><b data-l="en">Discovery</b><b data-l="pt">Descoberta</b><span data-l="en">Understand the problem before writing code.</span><span data-l="pt">Entender o problema antes de codar.</span></div>
+    <div><i>02</i><b data-l="en">Clear scope</b><b data-l="pt">Escopo claro</b><span data-l="en">Plan, priorities and timeline approved up front.</span><span data-l="pt">Plano, prioridades e prazo aprovados antes.</span></div>
+    <div><i>03</i><b data-l="en">Weekly delivery</b><b data-l="pt">Entregas semanais</b><span data-l="en">Small tested increments you can follow.</span><span data-l="pt">Pequenas entregas testadas que você acompanha.</span></div>
+    <div><i>04</i><b data-l="en">After launch</b><b data-l="pt">Pós-lançamento</b><span data-l="en">Measure, adjust and improve what matters.</span><span data-l="pt">Medir, ajustar e melhorar o que importa.</span></div>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <span class="label" style="color:var(--accent-ink)">contact</span>
+  <h2><span data-l="en">Let's talk about your project.</span><span data-l="pt">Vamos conversar sobre o seu projeto.</span></h2>
+  <p data-l="en">Open to remote roles and long-term contracts, available immediately. Send the context and I will reply with a clear plan, a realistic timeline and a fair price.</p>
+  <p data-l="pt">Aberto a vagas remotas e contratos de longo prazo, com disponibilidade imediata. Me mande o contexto e eu respondo com um plano claro, prazo realista e preço justo.</p>
+  <div class="rows">
+    <div class="row"><div><small>Email</small><span class="v" id="c-mail">kaynnanx1@gmail.com</span></div><button class="copy" type="button" data-copy="kaynnanx1@gmail.com">copy</button></div>
+    <div class="row"><div><small>WhatsApp</small><span class="v">+55 34 99997-0763</span></div><button class="copy" type="button" data-copy="+5534999970763">copy</button></div>
+    <div class="row"><div><small>LinkedIn</small><a href="https://www.linkedin.com/in/kaynnanbardauil" target="_blank" rel="noopener">linkedin.com/in/kaynnanbardauil</a></div></div>
+    <div class="row"><div><small>GitHub</small><a href="https://github.com/kaynnan" target="_blank" rel="noopener">github.com/kaynnan</a></div></div>
+    <div class="row"><div><small>Workana</small><a href="https://www.workana.com/freelancer/a1292a22656bc7a7d133d85385ff4b7b" target="_blank" rel="noopener">workana.com/freelancer/kaynnan</a></div></div>
+    <div class="row"><div><small data-l="en">Time zone</small><small data-l="pt">Fuso horário</small><span class="v">UTC-3 (Brazil)</span></div></div>
+  </div>
+</div></section>
+<footer><div class="wrap"><span>Kaynnan Bardauil Lemes</span><span>Python / Odoo / React / Node.js</span></div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){root.lang=l==='pt'?'pt-BR':'en';document.getElementById('l-en').setAttribute('aria-pressed',l==='en');document.getElementById('l-pt').setAttribute('aria-pressed',l==='pt');try{localStorage.setItem('kb-lang',l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem('kb-lang')}catch(e){}
+  setLang(saved||((navigator.language||'').toLowerCase().indexOf('pt')===0?'pt':'en'));
+  document.getElementById('l-en').onclick=function(){setLang('en')};
+  document.getElementById('l-pt').onclick=function(){setLang('pt')};
+  document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-copy');var done=function(){b.textContent='copied';setTimeout(function(){b.textContent='copy'},1500)};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){var r=document.createRange();r.selectNodeContents(b.previousElementSibling);var s=getSelection();s.removeAllRanges();s.addRange(r)})}})});
+  var c=document.getElementById('net');if(!c||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var x=c.getContext('2d'),pts=[],W,H,dpr=Math.min(2,window.devicePixelRatio||1);
+  function size(){var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);pts=[];var n=Math.round(W*H/16000);for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25})}
+  function tick(){x.clearRect(0,0,W,H);for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;x.fillStyle='rgba(124,200,242,.7)';x.fillRect(p.x-1,p.y-1,2,2);for(var j=i+1;j<pts.length;j++){var q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<110){x.strokeStyle='rgba(124,200,242,'+(.18*(1-d/110))+')';x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}}requestAnimationFrame(tick)}
+  size();addEventListener('resize',size);tick();
+})();
+</script>
+
+</body>
+</html>
