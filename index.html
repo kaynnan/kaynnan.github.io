@@ -32,8 +32,8 @@
 <link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js"><link rel="modulepreload" href="assets/moments/photo-chapters/moment.js"><link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
 <style>
 :root{
-  --p-bg:#faf9f5; --p-surface:#efe9de; --p-surface-2:#f5f0e8; --p-ink:#141413; --p-muted:#62625f;
-  --p-accent:#cc785c; --p-accent-dark:#a9583e; --p-hair:#e6dfd8;
+  --p-bg:#faf9f5; --p-surface:#efe9de; --p-surface-2:#f5f0e8; --p-ink:#141413; --p-muted:#3d3d3a;
+  --p-accent:#a9583e; --p-accent-dark:#8d442f; --p-hair:#e6dfd8;
   --p-inv-bg:#141413; --p-inv-surface:#252320; --p-inv-ink:#faf9f5; --p-inv-muted:#a09d96;
   --font-display:"Literata",Georgia,serif; --font-text:"Figtree",system-ui,sans-serif;
   --nav:72px; --padt:120px; --padb:72px; --gut:80px; --hgap:40px; --hpadb:64px;
@@ -93,6 +93,7 @@ p{margin:0}
 .btn .arrow{width:16px;height:16px;transition:transform 150ms var(--ease)}
 .btn:hover .arrow{transform:translateX(3px)}
 .btn-row{display:flex;align-items:center;gap:var(--s-5);flex-wrap:wrap}
+.footer-nav a,.crow a,.copy,.legal a,.btn--secondary{display:inline-flex;align-items:center;min-height:44px}
 
 /* hero */
 .hero{height:100svh;min-height:640px;background:var(--p-bg);padding-top:calc(var(--nav) + var(--hgap));padding-bottom:var(--hpadb);overflow:hidden}
@@ -216,6 +217,8 @@ html[lang="pt-BR"] [data-l="pt"]{display:revert}
   .contact__rows{margin-top:var(--s-6)}
 }
 @media (max-width:639px){
+  .nav .wrap{gap:8px}
+  .logo{font-size:17px}
   .nav__links,.nav__actions{display:none}
   .nav__toggle{display:flex;margin-left:auto}
   .nav.is-open .nav__links{display:flex;position:fixed;inset:var(--nav) 0 0;background:var(--p-bg);flex-direction:column;align-items:flex-start;padding:var(--s-6) var(--gut);gap:var(--s-5);z-index:9}
