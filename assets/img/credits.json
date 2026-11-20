@@ -1,0 +1,96 @@
+{
+ "note": "Credits for the photographs in this folder: photos.mjs credits prints the footer block for the ones the pages use.",
+ "photos": [
+  {
+   "file": "photo-f61739578.webp",
+   "files": [
+    "photo-f61739578-500.webp",
+    "photo-f61739578-960.webp",
+    "photo-f61739578-1280.webp",
+    "photo-f61739578.webp",
+    "photo-f61739578-780x975.webp"
+   ],
+   "id": "f61739578",
+   "alt": "Laptop on desk book stacks (Unsplash)",
+   "by": "freddie marriage fredmarriage",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Laptop_on_desk_book_stacks_(Unsplash).jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f62049414.webp",
+   "files": [
+    "photo-f62049414-500.webp",
+    "photo-f62049414-960.webp",
+    "photo-f62049414.webp"
+   ],
+   "id": "f62049414",
+   "alt": "Code on computer monitor (Unsplash)",
+   "by": "Markus Spiske markusspiske",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Code_on_computer_monitor_(Unsplash).jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f65122033.webp",
+   "files": [
+    "photo-f65122033-500.webp",
+    "photo-f65122033-960.webp",
+    "photo-f65122033.webp"
+   ],
+   "id": "f65122033",
+   "alt": "139 Server Room 01",
+   "by": "Indrajit Das",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:139_Server_Room_01.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f88032566-960.webp",
+   "files": [
+    "photo-f88032566-500.webp",
+    "photo-f88032566-960.webp"
+   ],
+   "id": "f88032566",
+   "alt": "Pittsboro Merchant Business Ledger",
+   "by": "Unknown author",
+   "licence": "Public domain",
+   "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "page": "https://commons.wikimedia.org/wiki/File:Pittsboro_Merchant_Business_Ledger_-_DPLA_-_4cbfce8f8f08c14f851ab74af046c082_(page_258).jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f63824612.webp",
+   "files": [
+    "photo-f63824612-500.webp",
+    "photo-f63824612-960.webp",
+    "photo-f63824612.webp"
+   ],
+   "id": "f63824612",
+   "alt": "Software Developer at Work",
+   "by": "Tsinkala",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Software_Developer_at_Work.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f51440522.webp",
+   "files": [
+    "photo-f51440522-500.webp",
+    "photo-f51440522-960.webp",
+    "photo-f51440522.webp"
+   ],
+   "id": "f51440522",
+   "alt": "Desk-laptop-working-technology (24299511976)",
+   "by": "www.Pixel.la Free Stock Photos",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Desk-laptop-working-technology_(24299511976).jpg",
+   "source": "Wikimedia Commons"
+  }
+ ]
+}
