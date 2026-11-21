@@ -9,7 +9,7 @@
   Client material (page CSS only): grain layer, pastel blobs, dark palette, hand-drawn underlines.
   Sections: hero, services, work, process, stack, experience, contact, footer.closing.
 -->
-<html lang="en" data-type="service" data-radius="soft" data-buttons="arrow" data-motion data-theme="light">
+<html lang="en" data-type="service" data-radius="soft" data-buttons="arrow" data-motion data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -17,7 +17,7 @@
 <meta name="description" content="Senior full-stack developer building Odoo ERP systems, fiscal-compliance software and integrations for companies in Brazil and Angola.">
 <meta name="site-kind" content="other">
 <meta name="page-type" content="service">
-<meta name="theme-color" content="#f3f2f9">
+<meta name="theme-color" content="#0b0d10">
 <meta property="og:title" content="Kaynnan Bardauil: Odoo ERP and web systems for Brazil and Angola">
 <meta property="og:description" content="Odoo implementations, web applications and integrations that run in production.">
 <meta property="og:type" content="website">
@@ -30,7 +30,7 @@
      The start.mjs brand deal printed Schibsted Grotesk; these two families are the client's own. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
@@ -57,55 +57,54 @@
 <script>document.documentElement.classList.add('mo-js');setTimeout(function(){document.documentElement.classList.add('mo-safe')},2500)</script>
 <link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js"><link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
 <style>
-/* ---- Client material: typography, grain, blobs, dark palette ------------------------------
-   Only the two font tokens below are replaced from the brand deal; DESIGN.md §3 documents them. */
+/* ---- Editorial technical skin: dark-first, sharp edges, one signal accent ----------------- */
 :root {
   --font-display: "Syne", system-ui, sans-serif;
   --font-text: "Figtree", system-ui, sans-serif;
-  /* DESIGN.md §2: a darker reading ink where the dealt #616881 falls under 7:1 on body copy. */
-  --p-muted: #454b6b;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --p-bg:#0b0d10; --p-surface:#14171c; --p-ink:#f2f1ec; --p-muted:#a3a7b0;
+  --p-accent:#c8ff2e; --p-accent-ink:#0b0d10; --p-action:#c8ff2e; --p-action-ink:#0b0d10;
+  --p-inv-bg:#f2f0ea; --p-inv-surface:#e7e4dc; --p-inv-ink:#111318; --p-inv-muted:#55585f;
+  --p-inv-accent:#4a6b00; --p-inv-accent-ink:#f2f0ea; --p-inv-action:#4a6b00; --p-inv-action-ink:#f2f0ea;
+  --hair: rgba(242,241,236,.14);
+}
+html[data-theme="light"] {
+  --p-bg:#f2f0ea; --p-surface:#e7e4dc; --p-ink:#111318; --p-muted:#52565d;
+  --p-accent:#4a6b00; --p-accent-ink:#f2f0ea; --p-action:#4a6b00; --p-action-ink:#f2f0ea;
+  --p-inv-bg:#0b0d10; --p-inv-surface:#14171c; --p-inv-ink:#f2f1ec; --p-inv-muted:#a3a7b0;
+  --p-inv-accent:#c8ff2e; --p-inv-accent-ink:#0b0d10; --p-inv-action:#c8ff2e; --p-inv-action-ink:#0b0d10;
+  --hair: rgba(17,19,24,.16);
 }
 /* Bilingual content: show exactly one language. Specificity beats kit component rules. */
 html:not([lang="pt-BR"]) [data-l="pt"]{display:none}
 html[lang="pt-BR"] [data-l="en"]{display:none}
 html[lang="pt-BR"] [data-l="pt"]{display:revert}
-/* cards.css sets --c-text on .card; keep that copy at the brand ink for 7:1. */
-.grid.cards > .card { --c-text: var(--ink); }
-html[data-theme="dark"] {
-  --p-bg: #121426; --p-surface: #1c1f36; --p-ink: #e8e9f5; --p-muted: #a9afcb;
-  --p-accent: #8b93e8; --p-accent-ink: #121426; --p-action: #8b93e8; --p-action-ink: #121426;
-  --p-inv-bg: #0b0d1c; --p-inv-surface: #141732; --p-inv-ink: #e8e9f5; --p-inv-muted: #a9afcb;
-  --p-inv-accent: #8b93e8; --p-inv-accent-ink: #121426; --p-inv-action: #8b93e8; --p-inv-action-ink: #121426;
-}
 html, body { background: var(--bg); }
-
-/* Grain: a fixed, non-interactive noise layer (DESIGN.md §2). */
-html::before {
-  content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .045;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Pastel blobs: organic shapes cut by the viewport edges, with an internal highlight (DESIGN.md §4).
-   The .blobs field clips them inside the section so they never add scroll height or leave the wrap. */
-.blobs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
-  background-image: radial-gradient(ellipse at 88% 8%, rgba(168,240,208,.30), transparent 58%),
-                    radial-gradient(ellipse at 10% 96%, rgba(195,200,247,.24), transparent 55%); }
-.blob { position: absolute; border-radius: 62% 38% 51% 49% / 45% 55% 45% 55%;
-  background-image: linear-gradient(135deg, var(--b-from), var(--b-to));
-  box-shadow: inset 10px 14px 46px rgba(255,255,255,.45), inset -14px -18px 44px rgba(255,255,255,.18); }
-.blob--mint { --b-from: #a8f0d0; --b-to: #d9f7a8; width: min(66vw, 950px); aspect-ratio: 1; right: -28vw; top: -30vh; }
-.blob--peach { --b-from: #ffd6c4; --b-to: #ffeaa8; width: min(62vw, 890px); aspect-ratio: 1; left: -30vw; bottom: -32vh; border-radius: 43% 57% 38% 62% / 55% 42% 58% 45%; }
-.blob--rose { --b-from: #f3c4e6; --b-to: #c9c8f7; width: min(24vw, 340px); aspect-ratio: 1; right: 0; bottom: 0; border-radius: 55% 45% 60% 40% / 42% 58% 45% 55%; }
-.blob--blue { --b-from: #c3c8f7; --b-to: #a8e6ef; width: min(52vw, 730px); aspect-ratio: 1; right: -28vw; bottom: -26vh; border-radius: 48% 52% 41% 59% / 58% 45% 55% 42%; }
-html[data-theme="dark"] .blob--mint { --b-from: #39c9a0; --b-to: #8ad94f; }
-html[data-theme="dark"] .blob--peach { --b-from: #e07a5f; --b-to: #d9a441; }
-html[data-theme="dark"] .blob--rose { --b-from: #c25f9e; --b-to: #6a72d8; }
-html[data-theme="dark"] .blob--blue { --b-from: #6a72d8; --b-to: #3fa6c4; }
-html[data-theme="dark"] .blob { box-shadow: inset 10px 14px 46px rgba(255,255,255,.22), inset -14px -18px 44px rgba(0,0,0,.18); opacity: .78; }
+/* Fine static grain, almost invisible: texture, never a pattern. */
+html::before { content:""; position:fixed; inset:0; z-index:90; pointer-events:none; opacity:.028;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+/* Decorative artwork fields replace the playful blobs: quiet, monochrome, edge-to-edge. */
+.texture { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none;
+  z-index:0; opacity:.38; filter:grayscale(1) contrast(1.35); }
+html[data-theme="light"] .texture { opacity:.22; }
 html[data-theme="dark"] #l-en, html[data-theme="dark"] #l-pt, html[data-theme="dark"] #theme-toggle {
-  color: var(--p-ink); background: var(--p-surface); border-color: rgba(232,233,245,.3); }
+  color: var(--p-ink); background: var(--p-surface); border-color: var(--hair); }
 html[data-theme="dark"] #l-en[aria-pressed="true"], html[data-theme="dark"] #l-pt[aria-pressed="true"] {
-  color: var(--p-bg); background: var(--p-ink); }
+  color: var(--p-bg); background: var(--p-accent); }
+html[data-theme="light"] #l-en, html[data-theme="light"] #l-pt, html[data-theme="light"] #theme-toggle {
+  color: var(--p-ink); background: var(--p-surface); border-color: var(--hair); }
+html[data-theme="light"] #l-en[aria-pressed="true"], html[data-theme="light"] #l-pt[aria-pressed="true"] {
+  color: var(--p-bg); background: var(--p-accent); }
+/* Technical labels in mono, sentence case. */
+.t-label { font-family: var(--font-mono); font-size:13px; letter-spacing:0; }
+/* Sharp geometry everywhere: no pill shapes, no soft cards. */
+.grid.cards > .card, figure.artful, .process-art, .work-art, .contact-art, .develop, .btn { border-radius:2px; }
+.grid.cards > .card { border:1px solid var(--hair); }
+.grid.cards > .card { --c-text: var(--ink); position:relative; }
+.card__chip img { width:100%; height:100%; object-fit:cover; opacity:.85; }
+.work-card--alt { background: var(--p-bg); border-color: var(--p-accent); }
+.work-card--alt .card__chip { border-radius:0; }
+#work .card__chip { width:36px; height:36px; }
 
 /* The client's type-led centre hero and drawn action links. */
 .hero { position: relative; overflow: hidden; }
@@ -113,8 +112,8 @@ html[data-theme="dark"] #l-en[aria-pressed="true"], html[data-theme="dark"] #l-p
   align-items: stretch; justify-content: center; text-align: center; }
 .hero-text > * { width: 100%; }
 .hero-text > * + * { margin-top: var(--s-5); }
-.hero h1 { max-width: none; }
-.hero h1 strong { font-weight: 700; }
+.hero h1 { max-width: none; font-size: clamp(46px, 6.6vw, 96px); line-height: .99; letter-spacing: -.055em; font-weight: 800; }
+.hero h1 strong { font-weight: 800; color: var(--p-accent); }
 .hero__kicker { display: block; text-align: center; margin-inline: auto; }
 .contact-art { width: min(100%, 360px); aspect-ratio: 3 / 2; object-fit: cover; margin-top: var(--s-6);
   border-radius: 46% 54% 38% 62% / 55% 42% 58% 45%; }
@@ -138,7 +137,6 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(4px); }
 .rows > li { padding-block: var(--s-1); }
 .grid.cards > .card { padding: var(--s-4); }
 .card__chip { margin-bottom: var(--s-2); width: 22px; height: 22px; }
-#work .blob--blue { right: -34vw; bottom: -32vh; opacity: .6; }
 
 /* Client art direction: the remaining photographs are treated details - tight crop, organic
    mask, light desaturation and grain - never full-bleed stock heroes. No captions. */
@@ -153,19 +151,17 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
   opacity: .16; pointer-events: none; z-index: -1; }
 #experience { --padb: 48px; }
 #experience .rows > li { padding-block: 0; }
-#stack .blob--rose { display: none; }
 @media (min-width: 640px) and (max-width: 1023px) {
-  .hero .blob--peach { width: 100vw; left: 0; right: 0; }
-  #footer .btn--xl { min-height: 44px; font-size: 16px; }
+    #footer .btn--xl { min-height: 44px; font-size: 16px; }
 }
 .process-art { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; margin: 0 0 var(--s-4); border-radius: 46% 54% 38% 62% / 55% 42% 58% 45%; }
 .work-type .count { font: 700 clamp(96px, 16vw, 220px)/.8 var(--font-display); letter-spacing: -.07em; color: var(--p-accent); }
 .hero-facts-line { font-size: var(--t-small); color: var(--muted); }
 @media (max-width: 639px) {
   #services, #process { --h: 2 !important; }
-  #work { --padt: 64px; --padb: 48px; }
+  #work { --padt: 56px; --padb: 40px; }
   #work .grid.cards { gap: 10px; }
-  #work .card__chip { display: none; }
+  #work .card__chip { display:block; width:20px; height:20px; margin-bottom:6px; }
   #work .grid.cards > .card { padding: 12px; }
   #work .card h3 { font-size: 16px; line-height: 1.2; }
   #work .card p { font-size: 13px; line-height: 1.35; }
@@ -180,6 +176,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
   .closing__links > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .closing__links > .grid > * { grid-column: auto; }
   .btn { max-width: 100%; white-space: normal; text-align: center; }
+  .rows > li a { display:inline-flex; align-items:center; min-height:44px; }
 }
 .rows .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-small); line-height: 1.4; }
 /* picture-develops (from assets/moments/_demo/in-page-service.html), kept at the photo's true ratio */
@@ -187,11 +184,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
 .develop > img { display: block; width: 100%; height: 100%; object-fit: cover; }
 /* On a phone the blobs grow into the corners so the section still reads as a visual field. */
 @media (max-width: 639px) {
-  .blob--mint { width: 130vw; right: -80vw; top: -24vh; }
-  .blob--peach { width: 100vw; left: 0; right: 0; bottom: -24vh; }
-  .blob--rose { width: 60vw; right: 0; bottom: 0; }
-  .blob--blue { width: 120vw; right: -80vw; bottom: -20vh; }
-  /* The language and theme controls live in the open sheet, never in the closed bar. */
+          /* The language and theme controls live in the open sheet, never in the closed bar. */
   .nav:not(.is-open) .nav__actions > #l-en,
   .nav:not(.is-open) .nav__actions > #l-pt,
   .nav:not(.is-open) .nav__actions > #theme-toggle { display: none; }
@@ -232,9 +225,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
 <main id="top">
   <section class="hero" data-enter aria-labelledby="hero-h">
     <div class="wrap">
-      <div class="blobs" aria-hidden="true">
-        <div class="blob blob--mint"></div><div class="blob blob--peach"></div>
-      </div>
+      <img class="texture" src="assets/img/art-build.svg" alt="" aria-hidden="true" width="1200" height="800" loading="lazy" decoding="async">
       <div class="hero-text">
         <p class="hero__kicker"><span data-l="en">Senior full-stack developer · Odoo specialist</span><span data-l="pt">Desenvolvedor full stack sênior · especialista em Odoo</span></p>
         <h1 id="hero-h"><span data-l="en"><strong>Odoo ERP</strong> for companies in Brazil and Angola</span><span data-l="pt"><strong>Odoo ERP</strong> para empresas no Brasil e em Angola</span></h1>
@@ -250,7 +241,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
 
   <section class="section" id="services" style="--h: 1" aria-labelledby="services-h">
     <div class="wrap">
-      <div class="blobs" aria-hidden="true"><div class="blob blob--blue"></div></div>
+      <img class="texture" src="assets/img/art-production.svg" alt="" aria-hidden="true" width="1200" height="800" loading="lazy" decoding="async">
       <div class="section-head">
         <p class="t-label" data-l="en">Services</p><p class="t-label" data-l="pt">Serviços</p>
         <h2 id="services-h"><span data-l="en">Odoo services I can help with</span><span data-l="pt">Serviços Odoo em que posso ajudar</span></h2>
@@ -287,8 +278,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
 
   <section class="section ground-surface g2" id="work" aria-labelledby="work-h">
     <div class="wrap">
-      <div class="blobs" aria-hidden="true"><div class="blob blob--blue"></div></div>
-      <img class="work-art-band" src="assets/img/art-stack.svg" alt="" aria-hidden="true" width="1200" height="800" loading="lazy" decoding="async">
+      <img class="texture" src="assets/img/art-discovery.svg" alt="" aria-hidden="true" width="1200" height="800" loading="lazy" decoding="async">
       <div class="grid grid--top">
       <div class="span-6">
         <div class="section-head">
@@ -300,32 +290,32 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
       <div class="work-type span-6 start-7"><span class="count" aria-hidden="true">06</span><p class="t-lead" data-l="en">Systems in production.</p><p class="t-lead" data-l="pt">Sistemas em produção.</p><img class="work-art" src="assets/img/art-production.svg" alt="Abstract periwinkle and rose glass artwork" width="1200" height="800" loading="lazy" decoding="async"></div>
       </div>
       <div class="grid cards">
-          <article class="card span-4"><span class="card__chip" aria-hidden="true"></span>
+          <article class="card span-4 "><span class="card__chip" aria-hidden="true"><img src="assets/img/art-discovery.svg" alt="" width="1200" height="800" loading="lazy" decoding="async"></span>
             <p class="t-label">TIS / Odoo / Angola</p>
             <h3><span data-l="en">ARSEG reporting engine for Odoo</span><span data-l="pt">Motor de relatórios ARSEG para Odoo</span></h3>
             <p><span data-l="en">Generates regulatory workbooks from Odoo accounting, including solvency margin and technical result by branch.</span><span data-l="pt">Gera planilhas regulatórias a partir da contabilidade do Odoo, incluindo margem de solvência e resultado técnico por ramo.</span></p>
           </article>
-          <article class="card span-4"><span class="card__chip" aria-hidden="true"></span>
+          <article class="card span-4 work-card--alt"><span class="card__chip" aria-hidden="true"><img src="assets/img/art-build.svg" alt="" width="1200" height="800" loading="lazy" decoding="async"></span>
             <p class="t-label">Odoo 18 / AvaTax / Brazil</p>
             <h3><span data-l="en">Odoo invoices for CBS and IBS</span><span data-l="pt">Notas Odoo para CBS e IBS</span></h3>
             <p><span data-l="en">Enabled the missing fiscal module so the API payload carries the new taxes, and traced an NFS-e rejection to an empty municipal field.</span><span data-l="pt">Ativei o módulo fiscal que faltava para o cálculo ir no payload e encontrei a causa de uma rejeição de NFS-e em um campo municipal vazio.</span></p>
           </article>
-          <article class="card span-4"><span class="card__chip" aria-hidden="true"></span>
+          <article class="card span-4 "><span class="card__chip" aria-hidden="true"><img src="assets/img/art-production.svg" alt="" width="1200" height="800" loading="lazy" decoding="async"></span>
             <p class="t-label">TIS / Odoo / SOAP</p>
             <h3><span data-l="en">Odoo insurance web service connector</span><span data-l="pt">Conector Odoo de web service de seguros</span></h3>
             <p><span data-l="en">Policy and warranty data moved into Odoo through a legacy SOAP API, refactored to OCA standards with Angolan Portuguese translations.</span><span data-l="pt">Dados de apólices e garantias levados ao Odoo por uma API SOAP legada, refatorados no padrão OCA com traduções em português de Angola.</span></p>
           </article>
-          <article class="card span-4"><span class="card__chip" aria-hidden="true"></span>
+          <article class="card span-4 work-card--alt"><span class="card__chip" aria-hidden="true"><img src="assets/img/art-stack.svg" alt="" width="1200" height="800" loading="lazy" decoding="async"></span>
             <p class="t-label">TIS / GitLab / CI/CD</p>
             <h3><span data-l="en">Odoo release automation bot</span><span data-l="pt">Bot Odoo de automação de releases</span></h3>
             <p><span data-l="en">An async Python bot that bumps versions and runs the release flow on merge, with less manual work and more consistent releases.</span><span data-l="pt">Bot assíncrono em Python que versiona e executa o fluxo de release no merge, com menos trabalho manual e releases mais consistentes.</span></p>
           </article>
-          <article class="card span-4"><span class="card__chip" aria-hidden="true"></span>
+          <article class="card span-4 "><span class="card__chip" aria-hidden="true"><img src="assets/img/art-discovery.svg" alt="" width="1200" height="800" loading="lazy" decoding="async"></span>
             <p class="t-label">Internal tooling / DigitalOcean</p>
             <h3><span data-l="en">Odoo cloud environments dashboard</span><span data-l="pt">Painel Odoo de ambientes cloud</span></h3>
             <p><span data-l="en">An Odoo module that manages DigitalOcean Apps and Droplets through the API, with OWL components and REST controllers.</span><span data-l="pt">Módulo Odoo que gerencia Apps e Droplets da DigitalOcean via API, com componentes OWL e controllers REST.</span></p>
           </article>
-          <article class="card span-4"><span class="card__chip" aria-hidden="true"></span>
+          <article class="card span-4 work-card--alt"><span class="card__chip" aria-hidden="true"><img src="assets/img/art-stack.svg" alt="" width="1200" height="800" loading="lazy" decoding="async"></span>
             <p class="t-label">OCA / l10n-brazil</p>
             <h3><span data-l="en">Open source in the Odoo ecosystem</span><span data-l="pt">Open source no ecossistema Odoo</span></h3>
             <p><span data-l="en">Individual contributor with a signed CLA and merged work across l10n-brazil, accounting, repair, sales and project.</span><span data-l="pt">Contribuidor individual com CLA assinado e código mergeado em l10n-brazil, contabilidade, reparos, vendas e projetos.</span></p>
@@ -337,7 +327,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
   <!-- Process: three stages, each with original artwork -->
   <section class="section" id="process" style="--h: 1" aria-labelledby="process-h">
     <div class="wrap">
-      <div class="blobs" aria-hidden="true"><div class="blob blob--mint"></div></div>
+      <img class="texture" src="assets/img/art-production.svg" alt="" aria-hidden="true" width="1200" height="800" loading="lazy" decoding="async">
       <div class="section-head">
         <p class="t-label" data-l="en">Process</p><p class="t-label" data-l="pt">Processo</p>
         <h2 id="process-h"><span data-l="en">Project process in three stages</span><span data-l="pt">Processo de projeto em três etapas</span></h2>
@@ -353,7 +343,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
 
   <section class="section ground-surface" id="stack" aria-labelledby="stack-h">
     <div class="wrap grid grid--top">
-      <div class="blobs" aria-hidden="true"><div class="blob blob--rose"></div></div>
+      <img class="texture" src="assets/img/art-production.svg" alt="" aria-hidden="true" width="1200" height="800" loading="lazy" decoding="async">
       <div class="span-6">
         <div class="section-head">
           <p class="t-label" data-l="en">Stack</p><p class="t-label" data-l="pt">Stack</p>
@@ -375,7 +365,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
 
   <section class="section" id="experience" style="--h: 1" aria-labelledby="experience-h">
     <div class="wrap">
-      <div class="blobs" aria-hidden="true"><div class="blob blob--peach"></div></div>
+      <img class="texture" src="assets/img/art-build.svg" alt="" aria-hidden="true" width="1200" height="800" loading="lazy" decoding="async">
       <div class="section-head">
         <p class="t-label" data-l="en">Experience</p><p class="t-label" data-l="pt">Experiência</p>
         <h2 id="experience-h"><span data-l="en">Professional experience with Odoo teams</span><span data-l="pt">Experiência profissional com times Odoo</span></h2>
@@ -393,7 +383,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
 
   <section class="section" id="contact" aria-labelledby="contact-h">
     <div class="wrap grid grid--top">
-      <div class="blobs" aria-hidden="true"><div class="blob blob--rose"></div></div>
+      <img class="texture" src="assets/img/art-production.svg" alt="" aria-hidden="true" width="1200" height="800" loading="lazy" decoding="async">
       <div class="span-5">
         <div class="section-head">
           <p class="t-label" data-l="en">Contact</p><p class="t-label" data-l="pt">Contato</p>
@@ -465,7 +455,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
     btn.setAttribute('aria-label',t==='dark'?'Switch to light theme':'Switch to dark theme');
     try{localStorage.setItem(tKey,t)}catch(e){}
   }
-  setTheme(tSaved||(prefersDark?'dark':'light'));
+  setTheme(tSaved||'dark');
   document.getElementById('theme-toggle').addEventListener('click',function(){
     setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark');
   });
