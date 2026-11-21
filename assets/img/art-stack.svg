@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Abstract periwinkle glass forms with a thin glowing code line">
+  <defs>
+    <linearGradient id="d" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c9c8f7"/><stop offset=".55" stop-color="#a8c9ef"/><stop offset="1" stop-color="#e2c9f2"/>
+    </linearGradient>
+    <radialGradient id="j" cx=".6" cy=".3" r=".8">
+      <stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".07"/></feComponentTransfer></filter>
+  </defs>
+  <rect width="1200" height="800" fill="#f3f2f9"/>
+  <path d="M-60 560c180-160 380-130 540 0 140 112 300 110 450-10 110-88 240-70 320 40v210H-60Z" fill="url(#d)"/>
+  <circle cx="830" cy="230" r="210" fill="url(#j)" opacity=".55"/>
+  <g stroke="#fff" stroke-opacity=".55" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M180 300h90M310 300h180M530 300h60M180 360h220M440 360h120M600 360h90"/>
+  </g>
+  <rect width="1200" height="800" filter="url(#grain)" opacity=".8"/>
+</svg>
