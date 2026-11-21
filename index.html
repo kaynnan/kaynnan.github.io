@@ -102,6 +102,10 @@ html[data-theme="dark"] .blob--peach { --b-from: #e07a5f; --b-to: #d9a441; }
 html[data-theme="dark"] .blob--rose { --b-from: #c25f9e; --b-to: #6a72d8; }
 html[data-theme="dark"] .blob--blue { --b-from: #6a72d8; --b-to: #3fa6c4; }
 html[data-theme="dark"] .blob { box-shadow: inset 10px 14px 46px rgba(255,255,255,.22), inset -14px -18px 44px rgba(0,0,0,.18); opacity: .78; }
+html[data-theme="dark"] #l-en, html[data-theme="dark"] #l-pt, html[data-theme="dark"] #theme-toggle {
+  color: var(--p-ink); background: var(--p-surface); border-color: rgba(232,233,245,.3); }
+html[data-theme="dark"] #l-en[aria-pressed="true"], html[data-theme="dark"] #l-pt[aria-pressed="true"] {
+  color: var(--p-bg); background: var(--p-ink); }
 
 /* The client's type-led centre hero and drawn action links. */
 .hero { position: relative; overflow: hidden; }
