@@ -5,7 +5,7 @@
   deal: brand tokens from DESIGN.md (client's own palette) via start.mjs brand · type schibsted deal,
         display/text faces replaced by the client's Syne/Figtree (DESIGN.md §3) · hero: type-led centre
         with client blobs · nav-split · footer-dark · close-type · surface-pairs · arrow buttons ·
-        wordmark · moments: photo-chapters (process) + picture-develops (stack).
+        wordmark · moments: picture-develops (stack).
   Client material (page CSS only): grain layer, pastel blobs, dark palette, hand-drawn underlines.
   Sections: hero, services, work, process, stack, experience, contact, footer.closing.
 -->
@@ -55,7 +55,7 @@
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(function(){document.documentElement.classList.add('m-enter-done')},700)</script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(function(){document.documentElement.classList.add('mo-safe')},2500)</script>
-<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js"><link rel="modulepreload" href="assets/moments/photo-chapters/moment.js"><link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
+<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js"><link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
 <style>
 /* ---- Client material: typography, grain, blobs, dark palette ------------------------------
    Only the two font tokens below are replaced from the brand deal; DESIGN.md §3 documents them. */
@@ -95,7 +95,7 @@ html::before {
   box-shadow: inset 10px 14px 46px rgba(255,255,255,.45), inset -14px -18px 44px rgba(255,255,255,.18); }
 .blob--mint { --b-from: #a8f0d0; --b-to: #d9f7a8; width: min(66vw, 950px); aspect-ratio: 1; right: -28vw; top: -30vh; }
 .blob--peach { --b-from: #ffd6c4; --b-to: #ffeaa8; width: min(62vw, 890px); aspect-ratio: 1; left: -30vw; bottom: -32vh; border-radius: 43% 57% 38% 62% / 55% 42% 58% 45%; }
-.blob--rose { --b-from: #f3c4e6; --b-to: #c9c8f7; width: min(30vw, 420px); aspect-ratio: 1; right: -18vw; bottom: -26vh; border-radius: 55% 45% 60% 40% / 42% 58% 45% 55%; }
+.blob--rose { --b-from: #f3c4e6; --b-to: #c9c8f7; width: min(24vw, 340px); aspect-ratio: 1; right: 0; bottom: 0; border-radius: 55% 45% 60% 40% / 42% 58% 45% 55%; }
 .blob--blue { --b-from: #c3c8f7; --b-to: #a8e6ef; width: min(52vw, 730px); aspect-ratio: 1; right: -28vw; bottom: -26vh; border-radius: 48% 52% 41% 59% / 58% 45% 55% 42%; }
 html[data-theme="dark"] .blob--mint { --b-from: #39c9a0; --b-to: #8ad94f; }
 html[data-theme="dark"] .blob--peach { --b-from: #e07a5f; --b-to: #d9a441; }
@@ -111,6 +111,9 @@ html[data-theme="dark"] .blob { box-shadow: inset 10px 14px 46px rgba(255,255,25
 .hero-text > * + * { margin-top: var(--s-5); }
 .hero h1 { max-width: none; }
 .hero h1 strong { font-weight: 700; }
+.hero__kicker { display: block; text-align: center; margin-inline: auto; }
+.contact-art { width: min(100%, 360px); aspect-ratio: 3 / 2; object-fit: cover; margin-top: var(--s-6);
+  border-radius: 46% 54% 38% 62% / 55% 42% 58% 45%; }
 .hero .hero__lead { max-width: 60ch; margin-inline: auto; }
 .hero .hero-facts { width: 100%; margin-top: var(--s-6); }
 .hero .btn-row { justify-content: center; }
@@ -140,10 +143,20 @@ figure.artful > img { filter: grayscale(.32) contrast(1.06) saturate(.88); objec
 figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .14;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 /* A typographic panel stands in for the work photograph. */
-.work-type { display: flex; flex-direction: column; justify-content: center; gap: var(--s-4); min-height: min(460px, 50svh); }
+.work-type { display: flex; flex-direction: column; justify-content: flex-start; align-self: start; gap: var(--s-4); min-height: 0; }
+.work-art { width: min(100%, 420px); aspect-ratio: 3 / 2; object-fit: cover; border-radius: 46% 54% 38% 62% / 55% 42% 58% 45%; }
+.process-art { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; margin: 0 0 var(--s-4); border-radius: 46% 54% 38% 62% / 55% 42% 58% 45%; }
 .work-type .count { font: 700 clamp(96px, 16vw, 220px)/.8 var(--font-display); letter-spacing: -.07em; color: var(--p-accent); }
 .hero-facts-line { font-size: var(--t-small); color: var(--muted); }
 @media (max-width: 639px) {
+  #work { --padt: 64px; --padb: 48px; }
+  #work .grid.cards { gap: 10px; }
+  #work .card__chip { display: none; }
+  #work .grid.cards > .card { padding: 12px; }
+  #work .card h3 { font-size: 16px; line-height: 1.2; }
+  #work .card p { font-size: 13px; line-height: 1.35; }
+  #work .card .t-label { font-size: 11px; }
+  #work .section-head { margin-bottom: 16px; }
   .work-type .count { font-size: clamp(72px, 22vw, 120px); }
   .nav__toggle { flex: none; width: 40px; height: 44px; }
   .nav__actions .btn { font-size: 13px; padding-inline: 10px; }
@@ -161,8 +174,8 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
 /* On a phone the blobs grow into the corners so the section still reads as a visual field. */
 @media (max-width: 639px) {
   .blob--mint { width: 130vw; right: -80vw; top: -24vh; }
-  .blob--peach { width: 120vw; left: -78vw; bottom: -20vh; }
-  .blob--rose { width: 80vw; right: -30vw; bottom: -6vh; }
+  .blob--peach { width: 100vw; left: 0; right: 0; bottom: -24vh; }
+  .blob--rose { width: 60vw; right: 0; bottom: 0; }
   .blob--blue { width: 120vw; right: -80vw; bottom: -20vh; }
   /* The language and theme controls live in the open sheet, never in the closed bar. */
   .nav:not(.is-open) .nav__actions > #l-en,
@@ -178,7 +191,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
 <body>
 <!--
   type: service · deal: brand (DESIGN.md), hero type-led centre, nav-split, footer-dark, close-type,
-  surface-pairs, arrow buttons, wordmark · moments: photo-chapters (#process), picture-develops (#stack)
+  surface-pairs, arrow buttons, wordmark · moments: picture-develops (#stack)
 -->
 <header class="nav nav--split">
   <div class="wrap nav__bar">
@@ -209,7 +222,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
         <div class="blob blob--mint"></div><div class="blob blob--peach"></div><div class="blob blob--rose"></div>
       </div>
       <div class="hero-text">
-        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span><span data-l="en">Senior full-stack developer · Odoo specialist</span><span data-l="pt">Desenvolvedor full stack sênior · especialista em Odoo</span></p>
+        <p class="hero__kicker"><span data-l="en">Senior full-stack developer · Odoo specialist</span><span data-l="pt">Desenvolvedor full stack sênior · especialista em Odoo</span></p>
         <h1 id="hero-h"><span data-l="en"><strong>Odoo ERP</strong> for companies in Brazil and Angola</span><span data-l="pt"><strong>Odoo ERP</strong> para empresas no Brasil e em Angola</span></h1>
         <p class="hero__lead"><span data-l="en">I build ERP platforms, web applications and integrations that run in production, from discovery to deployment.</span><span data-l="pt">Construo ERPs, aplicações web e integrações que rodam em produção, da descoberta ao deploy.</span></p>
         <div class="btn-row">
@@ -221,7 +234,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
     </div>
   </section>
 
-  <section class="section" id="services" style="--h: 2" aria-labelledby="services-h">
+  <section class="section" id="services" style="--h: 1" aria-labelledby="services-h">
     <div class="wrap">
       <div class="blobs" aria-hidden="true"><div class="blob blob--blue"></div></div>
       <div class="section-head">
@@ -269,7 +282,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
           <p><span data-l="en">Client names are omitted where confidentiality requires it.</span><span data-l="pt">Nomes de clientes são omitidos quando a confidencialidade exige.</span></p>
         </div>
       </div>
-      <div class="work-type span-6 start-7" aria-hidden="true"><span class="count">06</span><p class="t-lead" data-l="en">Systems in production.</p><p class="t-lead" data-l="pt">Sistemas em produção.</p></div>
+      <div class="work-type span-6 start-7"><span class="count" aria-hidden="true">06</span><p class="t-lead" data-l="en">Systems in production.</p><p class="t-lead" data-l="pt">Sistemas em produção.</p><img class="work-art" src="assets/img/art-production.svg" alt="Abstract periwinkle and rose glass artwork" width="1200" height="800" loading="lazy" decoding="async"></div>
       </div>
       <div class="grid cards">
           <article class="card span-4"><span class="card__chip" aria-hidden="true"></span>
@@ -306,31 +319,20 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
     </div>
   </section>
 
-  <!-- photo-chapters: no --h (the moment gives it three whole screens) -->
-  <section class="section" id="process" data-moment="photo-chapters" aria-labelledby="process-h">
-    <div class="wrap mo-ph">
-      <div class="mo-ph__head">
+  <!-- Process: three stages, each with original artwork -->
+  <section class="section" id="process" style="--h: 1" aria-labelledby="process-h">
+    <div class="wrap">
+      <div class="blobs" aria-hidden="true"><div class="blob blob--mint"></div></div>
+      <div class="section-head">
         <p class="t-label" data-l="en">Process</p><p class="t-label" data-l="pt">Processo</p>
         <h2 id="process-h"><span data-l="en">Project process in three stages</span><span data-l="pt">Processo de projeto em três etapas</span></h2>
         <p><span data-l="en">Three stages, each with a clear deliverable before the next one starts.</span><span data-l="pt">Três etapas, cada uma com uma entrega clara antes da próxima começar.</span></p>
       </div>
-      <ol class="mo-ph__list">
-        <li class="mo-ph__ch">
-<figure class="mo-ph__pic artful"><img src="assets/img/art-discovery.svg" width="1200" height="800" alt="Abstract mint and lime glass forms" loading="lazy" decoding="async" data-source="original" data-subject="discovery"></figure>
-          <h3><span data-l="en">Process scope and data</span><span data-l="pt">Processo, escopo e dados</span></h3>
-          <p><span data-l="en">We map the process, the data and the deadline before any code is written.</span><span data-l="pt">Mapeamos o processo, os dados e o prazo antes de escrever qualquer código.</span></p>
-        </li>
-        <li class="mo-ph__ch">
-<figure class="mo-ph__pic artful"><img src="assets/img/art-build.svg" width="1200" height="800" alt="Abstract peach and coral glass ribbon" loading="lazy" decoding="async" data-source="original" data-subject="build"></figure>
-          <h3><span data-l="en">Ship in small steps</span><span data-l="pt">Entregar em passos pequenos</span></h3>
-          <p><span data-l="en">Tested increments, visible in the repository, with scope agreed before each one.</span><span data-l="pt">Entregas testadas, visíveis no repositório, com escopo acordado antes de cada uma.</span></p>
-        </li>
-        <li class="mo-ph__ch">
-<figure class="mo-ph__pic artful"><img src="assets/img/art-production.svg" width="1200" height="800" alt="Abstract periwinkle and rose glass waves" loading="lazy" decoding="async" data-source="original" data-subject="production"></figure>
-          <h3><span data-l="en">Deployment and support</span><span data-l="pt">Deploy e suporte</span></h3>
-          <p><span data-l="en">Deployment, monitoring and tuning after launch, with the same stack carried through.</span><span data-l="pt">Deploy, monitoramento e ajuste depois do lançamento, com a mesma stack até o fim.</span></p>
-        </li>
-      </ol>
+      <div class="grid cards">
+        <article class="card span-4"><figure class="process-art artful"><img src="assets/img/art-discovery.svg" width="1200" height="800" alt="Abstract mint and lime glass forms" loading="lazy" decoding="async"></figure><h3><span data-l="en">Process scope and data</span><span data-l="pt">Processo, escopo e dados</span></h3><p><span data-l="en">We map the process, the data and the deadline before any code is written.</span><span data-l="pt">Mapeamos o processo, os dados e o prazo antes de escrever qualquer código.</span></p></article>
+        <article class="card span-4"><figure class="process-art artful"><img src="assets/img/art-build.svg" width="1200" height="800" alt="Abstract peach and coral glass ribbon" loading="lazy" decoding="async"></figure><h3><span data-l="en">Ship in small steps</span><span data-l="pt">Entregar em passos pequenos</span></h3><p><span data-l="en">Tested increments, visible in the repository, with scope agreed before each one.</span><span data-l="pt">Entregas testadas, visíveis no repositório, com escopo acordado antes de cada uma.</span></p></article>
+        <article class="card span-4"><figure class="process-art artful"><img src="assets/img/art-production.svg" width="1200" height="800" alt="Abstract periwinkle and rose glass waves" loading="lazy" decoding="async"></figure><h3><span data-l="en">Deployment and support</span><span data-l="pt">Deploy e suporte</span></h3><p><span data-l="en">Deployment, monitoring and tuning after launch, with the same stack carried through.</span><span data-l="pt">Deploy, monitoramento e ajuste depois do lançamento, com a mesma stack até o fim.</span></p></article>
+      </div>
     </div>
   </section>
 
@@ -356,7 +358,7 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
     </div>
   </section>
 
-  <section class="section" id="experience" style="--h: 2" aria-labelledby="experience-h">
+  <section class="section" id="experience" style="--h: 1" aria-labelledby="experience-h">
     <div class="wrap">
       <div class="blobs" aria-hidden="true"><div class="blob blob--peach"></div></div>
       <div class="section-head">
@@ -384,11 +386,12 @@ figure.artful::after { content: ""; position: absolute; inset: 0; pointer-events
           <p><span data-l="en">Open to remote roles and long-term contracts, available immediately. Send the context and I will reply with a plan, a timeline and a price.</span><span data-l="pt">Aberto a vagas remotas e contratos de longo prazo, com disponibilidade imediata. Mande o contexto e eu respondo com um plano, um prazo e um preço.</span></p>
         </div>
         <div class="btn-row"><a class="btn btn--primary" href="mailto:kaynnanx1@gmail.com?subject=Project%20enquiry"><span data-l="en">Email me about a project</span><span data-l="pt">Me envie um e-mail sobre um projeto</span><svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a></div>
+        <img class="contact-art" src="assets/img/art-discovery.svg" alt="Abstract mint and lime glass artwork" width="1200" height="800" loading="lazy" decoding="async">
       </div>
       <div class="span-6 start-7">
         <ul class="rows">
           <li><span class="rows__name">Email<small>kaynnanx1@gmail.com</small></span></li>
-          <li><span class="rows__name">WhatsApp<small>+55 34 99997-0763</small></span></li>
+          <li><span class="rows__name">WhatsApp<small><a href="https://wa.me/5534999970763" target="_blank" rel="noopener">Message me on WhatsApp</a></small></span></li>
           <li><span class="rows__name">LinkedIn<small><a href="https://www.linkedin.com/in/kaynnanbardauil" target="_blank" rel="noopener">linkedin.com/in/kaynnanbardauil</a></small></span></li>
           <li><span class="rows__name">GitHub<small><a href="https://github.com/kaynnan" target="_blank" rel="noopener">github.com/kaynnan</a></small></span></li>
           <li><span class="rows__name">Workana<small><a href="https://www.workana.com/freelancer/a1292a22656bc7a7d133d85385ff4b7b" target="_blank" rel="noopener">workana.com/freelancer/kaynnan</a></small></span></li>
