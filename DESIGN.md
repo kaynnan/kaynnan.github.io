@@ -28,7 +28,7 @@ sem gradientes decorativos suaves. A competência aparece na estrutura, não no 
 ## 4. Visual system (image-free)
 
 - `.texture` — grade CSS com linhas verticais e diagonais em `--hair`/acento.
-- `.field` — painel de fundo com grade noatro da seção de trabalho.
+- `.field` — painel de fundo com grade atrás da seção de trabalho.
 - `.wire` — pequeno diagrama CSS nos cards de processo.
 - `.terminal` — janela de código com sintaxe real (Python/Odoo).
 - `.status` — linha de comando com disponibilidade e stack.
