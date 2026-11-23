@@ -199,7 +199,7 @@ export default function App() {
             </p>
             <div className="hero-statement">
               <p className="designer">A Developer who</p>
-              <h1>
+              <h1 aria-label="Ships systems that run in production.">
                 Ships systems that
                 <br />
                 run in <span>production</span>.
@@ -216,7 +216,7 @@ export default function App() {
               I&apos;m a Software Engineer.<span className="cursor">|</span>
             </h2>
             <p className="designation">
-              Currently, I&apos;m a Senior Full Stack Developer at <span className="company">TIS</span>,
+              Currently, I&apos;m a Senior Full Stack Developer at <span className="company">TIS</span>
             </p>
             <p className="bio">
               Eight years building software, five of them with Python and Odoo v14 to v18.
@@ -298,9 +298,9 @@ export default function App() {
           kaynnanx1@gmail.com
         </a>
         <div className="social-row">
-          <a href="https://github.com/kaynnan" aria-label="GitHub">
-            <img src={`${A}/eead5.svg`} alt="GitHub, LinkedIn and Workana" />
-          </a>
+          <a href="https://github.com/kaynnan" aria-label="GitHub">GitHub</a>
+          <a href="https://www.linkedin.com/in/kaynnanbardauil" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://www.workana.com/freelancer/a1292a22656bc7a7d133d85385ff4b7b" aria-label="Workana">Workana</a>
         </div>
       </footer>
     </div>

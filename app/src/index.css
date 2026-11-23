@@ -867,9 +867,20 @@
   margin-top: 28px;
 }
 
-.social-row img {
-  width: 110px;
-  height: 19px;
+.social-row {
+  display: flex;
+  gap: 24px;
+}
+
+.social-row a {
+  color: #fff;
+  font-family: var(--poppins-medium);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.social-row a:hover {
+  color: var(--lilac);
 }
 
 @media (max-width: 900px) {

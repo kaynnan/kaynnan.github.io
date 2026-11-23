@@ -1,46 +1,43 @@
 # DESIGN.md — Kaynnan Bardauil Lemes
 
-Portfólio editorial técnico, dark-first, **sem nenhum arquivo de imagem**. Todo visual é
-desenhado em CSS, tipografia e código.
+> Histórico: este arquivo descrevia a versão anterior (sem imagens, acento verde-ácido,
+> Syne/Figtree). A versão atual segue o sistema Figma entregue pelo usuário, documentado
+> em `docs/superpowers/specs/2026-11-23-portfolio-redesign-design.md`.
 
-## 1. Atmosphere
+## Sistema visual atual (Figma)
 
-Uma interface de engenheiro sênior: fundo quase preto, grid sutil, acento verde-ácido,
-manchete gigante e um terminal com código real. Sem fotos, sem ilustrações, sem blobs,
-sem gradientes decorativos suaves. A competência aparece na estrutura, não no enfeitamento.
+Portfólio editorial escuro, denso e com personalidade — reproduzido fielmente do código
+React/Vite entregue, com conteúdo real de Kaynnan.
 
-## 2. Tokens
+### Tokens
 
-| Token | Dark (padrão) | Light (toggle) |
-| --- | --- | --- |
-| `--p-bg` | `#0b0d10` | `#f2f0ea` |
-| `--p-surface` | `#14171c` | `#e7e4dc` |
-| `--p-ink` | `#f2f1ec` | `#111318` |
-| `--p-muted` | `#a3a7b0` | `#52565d` |
-| `--p-accent` | `#c8ff2e` | `#4a6b00` |
+| Token | Valor |
+| --- | --- |
+| `--page` | `#11071f` |
+| `--header` | `#1a0b2e` |
+| `--purple` | `#7127ba` |
+| `--lilac` | `#a362ff` |
+| `--project-copy` | `#ccd6f6` |
 
-## 3. Typography
+### Tipografia (Figma)
 
-- `Syne` 700–800 para display, tracking negativo; hero `clamp(32px, 6.6vw, 96px)`.
-- `Figtree` para texto corrido.
-- `JetBrains Mono` para rótulos, status e código.
+- `Preahvihear` — corpo e manchetes (`--body-font`).
+- `Poppins` Medium/SemiBold — UI, cards e projetos.
+- `Plus Jakarta Sans` SemiBold — navegação.
+- `PoetsenOne` e `Poor Story` — acentos ocasionais.
+- Todas via `@font-face` em `static.figma.com`, com fallback `sans-serif`.
 
-## 4. Visual system (image-free)
+### Componentes
 
-- `.texture` — grade CSS com linhas verticais e diagonais em `--hair`/acento.
-- `.field` — painel de fundo com grade atrás da seção de trabalho.
-- `.wire` — pequeno diagrama CSS nos cards de processo.
-- `.terminal` — janela de código com sintaxe real (Python/Odoo).
-- `.status` — linha de comando com disponibilidade e stack.
-- Cards com raio `2px`, hairline e variação alternada de fundo.
+- Header sticky com marca, 3 links e menu mobile.
+- Hero com retrato/monograma, seta, manchete e anel "cover".
+- 4 cards de experiência com órbitas e botão LEARN MORE.
+- Grid de 12 tecnologias e `skill-universe` com planetas, beams e 11 satélites.
+- 2 projetos alternados com painel glassmorphism.
+- Contato com email e links sociais reais.
 
-## 5. Motion
+### Assets
 
-`word-highlight` (skill) na seção de processo: a declaração acende palavra por palavra
-conforme a rolagem. Sem scroll-reveal de cards, sem parallax, sem efeitos de imagem.
-
-## 6. Tema e conteúdo
-
-Dark é o padrão; o toggle leva ao tema papel e persiste em `localStorage`. Conteúdo real:
-Odoo v14–v18, fiscal brasileiro, integrações REST/SOAP, PostgreSQL, React/Next.js, Unreal.
-Contatos reais no rodapé. Nenhum dado inventado.
+56 arquivos em `/mnt/c/Users/Odoo/Downloads/assets`, copiados para `app/public/assets` e
+publicados em `assets/` na raiz. Nenhum asset inventado; a foto de outra pessoa do template
+foi trocada por monograma KBL, e o logo Facebook por texto TIS.
