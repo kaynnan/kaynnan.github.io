@@ -13,7 +13,7 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    icon: "251bb.png",
+    icon: "tech-odoo.svg",
     orbit: "5d777.svg",
     title: "Odoo Developer · TIS",
     period: "Dec 2025 – now",
@@ -29,7 +29,7 @@ const experiences: Experience[] = [
     extra: "Turned vague briefs into scoped work with clear deliverables, timelines and a stack that fits the problem.",
   },
   {
-    icon: "08842.png",
+    icon: "tech-odoo.svg",
     orbit: "deb0e.svg",
     title: "Odoo Developer · Escodoo",
     period: "Mar 2023 – Oct 2026",
@@ -53,12 +53,12 @@ const technologies: [string, string][] = [
   ["aa109.png", "Node.js"],
   ["1a7a3.png", "Express"],
   ["b4403.png", "MongoDB"],
-  ["", "Python"],
-  ["", "Odoo"],
-  ["", "PostgreSQL"],
-  ["", "Docker"],
-  ["", "AWS"],
-  ["", "Next.js"],
+  ["tech-python.svg", "Python"],
+  ["tech-odoo.svg", "Odoo"],
+  ["tech-postgresql.svg", "PostgreSQL"],
+  ["tech-docker.svg", "Docker"],
+  ["tech-aws.svg", "AWS"],
+  ["tech-nextjs.svg", "Next.js"],
 ];
 
 const satellites: [string, string][] = [
@@ -165,7 +165,7 @@ export default function App() {
     <div className="portfolio-shell">
       <header className="site-header">
         <a className="brand" href="#home" aria-label="Portfolio home">
-          <img src={`${A}/b51ae.svg`} alt="" />
+          <img src={`${A}/k-symbol.svg`} alt="" />
         </a>
         <button
           type="button"
@@ -189,9 +189,7 @@ export default function App() {
           <div className="hero-intro">
             <div className="portrait-wrap">
               <img className="portrait-glow" src={`${A}/a50e1.svg`} alt="" />
-              <div className="portrait" role="img" aria-label="KBL monogram">
-                <span>KBL</span>
-              </div>
+              <img className="portrait portrait-symbol" src={`${A}/k-symbol.svg`} alt="K monogram" />
             </div>
             <img className="hello-arrow" src={`${A}/0f0ff.svg`} alt="" />
             <p className="hello">

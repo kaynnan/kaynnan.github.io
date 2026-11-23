@@ -505,6 +505,17 @@
   color: #fff;
 }
 
+.portrait-symbol {
+  object-fit: contain;
+  padding: 40px;
+  top: 18px;
+  left: 20px;
+  width: 218px;
+  height: 218px;
+  border-radius: 50%;
+  background: linear-gradient(150deg, rgba(163, 98, 255, 0.35), rgba(113, 39, 186, 0.2));
+}
+
 .skill-universe {
   position: relative;
   width: min(100%, 881px);
