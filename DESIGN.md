@@ -1,14 +1,13 @@
 # DESIGN.md — Kaynnan Bardauil Lemes
 
-Sistema visual do portfólio. Editorial técnico, dark-first, sem formas lúdicas e sem stock.
-A referência de composição é a escala tipográfica de portfólios de designers premiados
-(Typewolf), executada aqui com identidade própria.
+Portfólio editorial técnico, dark-first, **sem nenhum arquivo de imagem**. Todo visual é
+desenhado em CSS, tipografia e código.
 
 ## 1. Atmosphere
 
-Uma interface de engenheiro madura: fundo quase preto, tipografia enorme, acento único
-verde-ácido, hairlines e bordas secas. Sem blobs, sem gradientes pastel, sem ilustrações
-"fofas", sem cartões arredondados. O peso visual vem da escala do texto e do contraste.
+Uma interface de engenheiro sênior: fundo quase preto, grid sutil, acento verde-ácido,
+manchete gigante e um terminal com código real. Sem fotos, sem ilustrações, sem blobs,
+sem gradientes decorativos suaves. A competência aparece na estrutura, não no enfeitamento.
 
 ## 2. Tokens
 
@@ -19,46 +18,29 @@ verde-ácido, hairlines e bordas secas. Sem blobs, sem gradientes pastel, sem il
 | `--p-ink` | `#f2f1ec` | `#111318` |
 | `--p-muted` | `#a3a7b0` | `#52565d` |
 | `--p-accent` | `#c8ff2e` | `#4a6b00` |
-| `--p-accent-ink` | `#0b0d10` | `#f2f0ea` |
-| `--hair` | `rgba(242,241,236,.14)` | `rgba(17,19,24,.16)` |
-
-O acento aparece apenas na manchete, no botão principal e no estado ativo. Nunca em
-fundos grandes.
 
 ## 3. Typography
 
-- **Display/UI:** `Syne` 700–800, tracking `-0.03em` a `-0.055em`. Manchete do hero
-  `clamp(46px, 6.6vw, 96px)`.
-- **Texto:** `Figtree` 400–500, line-height 1.55–1.65.
-- **Labels/tech:** `JetBrains Mono` 13px, sentence case (nunca caixa alta).
+- `Syne` 700–800 para display, tracking negativo; hero `clamp(32px, 6.6vw, 96px)`.
+- `Figtree` para texto corrido.
+- `JetBrains Mono` para rótulos, status e código.
 
-## 4. Components
+## 4. Visual system (image-free)
 
-- Nav mínima: marca small, EN/PT, toggle de tema e um único botão principal.
-- Botões: raio `2px`, preenchimento sólido no primário, seta `→`. Sem ghost/gradiente.
-- Cards: `2px` de raio, 1px hairline, fundo de superfície com variação alternada nos
-  cards de trabalho; miniatura de artwork no chip.
-- Imagens de apoio: artwork SVG original, em camada `opacity .38`, dessaturada,
-  `object-fit: cover`, sem legenda. Nunca foto de banco.
-- Grão estático em `html::before`, opacidade `.028`.
+- `.texture` — grade CSS com linhas verticais e diagonais em `--hair`/acento.
+- `.field` — painel de fundo com grade noatro da seção de trabalho.
+- `.wire` — pequeno diagrama CSS nos cards de processo.
+- `.terminal` — janela de código com sintaxe real (Python/Odoo).
+- `.status` — linha de comando com disponibilidade e stack.
+- Cards com raio `2px`, hairline e variação alternada de fundo.
 
-## 5. Layout
+## 5. Motion
 
-Geometria validada pela Taste Skill: seções em 1 ou 2 telas exatas, `--h` por seção,
-respiro controlado, nenhuma seção vizinha atravessando o tile. No phone, serviços e
-processo ocupam 2 telas; trabalho é comprimido para caber em 2.
+`word-highlight` (skill) na seção de processo: a declaração acende palavra por palavra
+conforme a rolagem. Sem scroll-reveal de cards, sem parallax, sem efeitos de imagem.
 
-## 6. Motion
+## 6. Tema e conteúdo
 
-Entrada única do hero; hover de links com sublinhado desenhado e seta que avança 4px;
-sem scroll-reveal, sem parallax. `prefers-reduced-motion` desliga transições.
-
-## 7. Tema
-
-Dark é o padrão. O botão de lua alterna para o tema papel e persiste em `localStorage`.
-
-## 8. Conteúdo
-
-Odoo v14–v18, fiscal brasileiro (NF-e, NFS-e, SPED, CBS/IBS), integrações REST/SOAP,
-PostgreSQL, React/Next.js, Unreal. Contatos reais no rodapé. Todo o artwork é original
-e pode ser usado com este site; créditos em `credits.html`.
+Dark é o padrão; o toggle leva ao tema papel e persiste em `localStorage`. Conteúdo real:
+Odoo v14–v18, fiscal brasileiro, integrações REST/SOAP, PostgreSQL, React/Next.js, Unreal.
+Contatos reais no rodapé. Nenhum dado inventado.
