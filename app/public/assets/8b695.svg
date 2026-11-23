@@ -2,8 +2,8 @@
 <ellipse id="Gradient" cx="286" cy="320.5" rx="286" ry="320.5" fill="url(#paint0_radial_0_75)"/>
 <defs>
 <radialGradient id="paint0_radial_0_75" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(286 320.5) rotate(90) scale(320.5 286)">
-<stop stop-color="#763CAC"/>
-<stop offset="1" stop-color="#320F85" stop-opacity="0"/>
+<stop stop-color="#2a6b2a"/>
+<stop offset="1" stop-color="#123a1a" stop-opacity="0"/>
 </radialGradient>
 </defs>
 </svg>

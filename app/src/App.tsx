@@ -260,7 +260,7 @@ export default function App() {
             <img className="orbit orbit-3" src={`${A}/f35ed.svg`} alt="" />
             <img className="orbit orbit-4" src={`${A}/ebf17.svg`} alt="" />
             <img className="planet" src={`${A}/ffb89.svg`} alt="" />
-            <img className="planet-logo" src={`${A}/78bbd.svg`} alt="" />
+            <img className="planet-logo" src={`${A}/planet-logo-k.svg`} alt="" />
             {satellites.map(([icon, className]) => (
               <img key={icon} className={className} src={`${A}/${icon}`} alt="" />
             ))}
@@ -269,14 +269,14 @@ export default function App() {
 
         <section id="projects" className="projects section-width" aria-label="Featured projects">
           <Project
-            image="d7219.png"
+            image="project-arseg.svg"
             imageClass="project-page-image"
             title="ARSEG reporting engine"
             description="An Odoo engine that generates regulatory workbooks from accounting entries, including solvency margin and technical result by branch, plus fixed asset sheets. Refactored into a layered architecture."
             note="TIS / Odoo / PostgreSQL / Angola."
           />
           <Project
-            image="206b3.png"
+            image="project-fiscal.svg"
             reverse
             title="CBS/IBS on service invoices"
             description="Enabled the missing fiscal reform module so the AvaTax payload carries the new CBS/IBS taxes, and traced an NFS-e rejection to an empty municipal tax field in the XML."

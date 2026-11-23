@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="Regulatory reporting dashboard mockup">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d120c"/><stop offset="1" stop-color="#1a2410"/></linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b6ff3c"/><stop offset="1" stop-color="#5ef2ff" stop-opacity=".35"/></linearGradient>
+  </defs>
+  <rect width="900" height="600" rx="14" fill="url(#bg)"/>
+  <rect width="190" height="600" rx="14" fill="#131a0d"/>
+  <rect x="22" y="28" width="120" height="14" rx="7" fill="#b6ff3c"/>
+  <g fill="#6f8064"><rect x="22" y="80" width="130" height="8" rx="4"/><rect x="22" y="108" width="100" height="8" rx="4"/><rect x="22" y="136" width="118" height="8" rx="4"/><rect x="22" y="164" width="88" height="8" rx="4"/></g>
+  <rect x="8" y="72" width="4" height="28" rx="2" fill="#b6ff3c"/>
+  <g fill="#d6f5c0"><rect x="226" y="30" width="210" height="16" rx="8"/><rect x="226" y="58" width="140" height="8" rx="4" fill="#6f8064"/></g>
+  <g>
+    <rect x="226" y="100" width="196" height="76" rx="9" fill="#141b0e" stroke="#2f4a16"/>
+    <rect x="438" y="100" width="196" height="76" rx="9" fill="#141b0e" stroke="#2f4a16"/>
+    <rect x="650" y="100" width="220" height="76" rx="9" fill="#141b0e" stroke="#2f4a16"/>
+    <g fill="#5ef2ff"><rect x="242" y="118" width="60" height="22" rx="6"/></g>
+    <g fill="#6f8064"><rect x="242" y="148" width="110" height="6" rx="3"/><rect x="454" y="118" width="60" height="22" rx="6" fill="#b6ff3c"/><rect x="454" y="148" width="110" height="6" rx="3"/><rect x="666" y="118" width="60" height="22" rx="6" fill="#b6ff3c"/><rect x="666" y="148" width="110" height="6" rx="3"/></g>
+  </g>
+  <rect x="226" y="196" width="644" height="270" rx="9" fill="#10170b" stroke="#2f4a16"/>
+  <g fill="url(#bar)">
+    <rect x="252" y="350" width="46" height="86" rx="4"/><rect x="312" y="312" width="46" height="124" rx="4"/>
+    <rect x="372" y="332" width="46" height="104" rx="4"/><rect x="432" y="276" width="46" height="160" rx="4"/>
+    <rect x="492" y="300" width="46" height="136" rx="4"/><rect x="552" y="248" width="46" height="188" rx="4"/>
+    <rect x="612" y="290" width="46" height="146" rx="4"/><rect x="672" y="226" width="46" height="210" rx="4"/>
+    <rect x="732" y="266" width="46" height="170" rx="4"/>
+  </g>
+  <g stroke="#5ef2ff" stroke-width="2" fill="none" opacity=".7"><path d="M275 330 335 292 395 312 455 256 515 280 575 228 635 270 695 206 755 246"/></g>
+  <g fill="#6f8064"><rect x="242" y="216" width="120" height="7" rx="3"/><rect x="380" y="216" width="80" height="7" rx="3"/></g>
+</svg>
